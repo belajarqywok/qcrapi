@@ -29,17 +29,28 @@ class Generate:
                 price.append(data2["price_usd"])
                 for generates in range(len(price)):
                     datas.append({
-                        "cryptocurrency name\t: ":self.coins[generates],
-                        "price\t: ":price[generates]
+                        "cryptocurrency name\t ":self.coins[generates],
+                        "price\t ":price[generates]
                     })
                 dataFrame=pandas.DataFrame(datas)
                 dataFrame.to_csv(str(datetime.datetime.now().strftime("%Y%m%d%H"))+".csv", index=False, encoding="utf-8")
-key1='vMnbp92YvMjdvkGch9SbvNmLvt2Yldmbp92YukGch9yL6MHc0RHa'
-key2='0V2ayFWbvMXdyVmdvQXZu5Cbv9GcrNWds9yL6MHc0RHa'
-generate=Generate(key1,key2)
-while True:
-    os.system("clear")
-    generate.dataGenerator()
-    print("generate.... ")
-    sleep(3)
+class executed:
+    def __init__(self):
+        self.key1='vMnbp92YvMjdvkGch9SbvNmLvt2Yldmbp92YukGch9yL6MHc0RHa'
+        self.key2='0V2ayFWbvMXdyVmdvQXZu5Cbv9GcrNWds9yL6MHc0RHa'
+        self.generate=Generate(self.key1,self.key2)  
+
+    def exec(self) :
+        while True:
+            os.system("clear")
+            self.generate.dataGenerator()
+            print("generate.... ")
+            sleep(3)
+if __name__=="__main__":
+    try:    
+        executed().exec()
+    except KeyboardInterrupt:
+        os.system("clear")
+        print("exit")
+        sys.exit(1)
 
