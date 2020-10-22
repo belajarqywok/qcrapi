@@ -1,2 +1,2 @@
 # qcrapi
-request dari izmael bil mael
+request dari izmael bin mael
